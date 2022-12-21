@@ -4,30 +4,19 @@ m = 3, n = 4.
 1 -3,3 8 -9,9
 8 7,8 -7,1 9*/
 
-double[,] GetArray(int m, int n)
+double[,] GetAndPrintArray(int m, int n, int minValue, int maxValue)
 {
-    double[,] newArray = new double[m, n];
+    double[,] result = new double[m, n];
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            newArray[i, j] = new Random().NextDouble() * 7;
-        }
-    }
-    return newArray;
-}
-
-void PrintArray(double[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            System.Console.Write($"{Math.Round(array[i, j],2)} ");
+            result[i, j] = new Random().NextDouble()*7;
+            System.Console.Write(Math.Round(result[i,j],1));
         }
         System.Console.WriteLine();
     }
+    return result;
 }
 
-double[,] array = GetArray(4, 4);
-PrintArray(array);
+double[,] array = GetAndPrintArray(4,4,5,11);
