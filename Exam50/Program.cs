@@ -6,7 +6,7 @@
 8 4 2 4
 17 -> такого числа в массиве нет*/
 
-int[,] GetArray(int m, int n, int minValue, int maxValue)
+int[,] GetAndPrintArray(int m, int n, int minValue, int maxValue)
 {
     int[,] result = new int[m, n];
     for (int i = 0; i < m; i++)
@@ -14,22 +14,12 @@ int[,] GetArray(int m, int n, int minValue, int maxValue)
         for (int j = 0; j < n; j++)
         {
             result[i, j] = new Random().Next(minValue, maxValue);
-        }
-    }
-    return result;
-}
-void PrintArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            System.Console.Write($"{array[i, j]} ");
+            System.Console.Write(result[i,j]+" ");
         }
         System.Console.WriteLine();
     }
+    return result;
 }
-
 
 void SearchElementOfArray(int[,] array, int indexRows, int indexColumns)
 {
@@ -63,7 +53,6 @@ int indexRows = int.Parse(Console.ReadLine()!);
 System.Console.Write("Введите искомый индекс столбца: ");
 int indexColumns = int.Parse(Console.ReadLine()!);
 
-int[,] array = GetArray(rows, columns, 5, 30);
-PrintArray(array);
+int[,] array = GetAndPrintArray(rows, columns, 5, 30);
 System.Console.WriteLine();
 SearchElementOfArray(array, indexRows, indexColumns);
