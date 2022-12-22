@@ -23,36 +23,21 @@ int[,] GetAndPrintArray(int m, int n, int minValue, int maxValue)
 double[] SumAndMediumArifmArray(int[,] array)
 {
     double[] newArray = new double[array.GetLength(1)];
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(1); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(0); j++)
         {
-            if (j == 0)
-            {
-                newArray[j] += array[i, j];
-            }
-            if (j == 1)
-            {
-                newArray[j] += array[i, j];
-            }
-            if (j == 2)
-            {
-                newArray[j] += array[i, j];
-            }
-            if (j == 3)
-            {
-                newArray[j] += array[i, j];
-            }
+            newArray[i]+=array[j,i];
         }
     }
     System.Console.WriteLine();
     for (int i = 0; i < newArray.Length; i++)
     {
-        newArray[i] = newArray[i] / newArray.Length;
+        newArray[i] = newArray[i] / array.GetLength(0);
         System.Console.Write(newArray[i] + " ");
     }
     return newArray;
 }
 Console.Clear();
-int[,] array = GetAndPrintArray(4, 4, 4, 16);
+int[,] array = GetAndPrintArray(4, 6, 4, 16);
 double[] arr = SumAndMediumArifmArray(array);
