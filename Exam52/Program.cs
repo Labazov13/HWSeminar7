@@ -20,12 +20,6 @@ int[,] GetAndPrintArray(int m, int n, int minValue, int maxValue)
     return result;
 }
 
-/*int[] massiv=array.GetLength(1);
-if(i==0,j==0    i==0,j==1   i==0,j==2   i==0,j==3)
-   i==1,j==0    i==1,j==1   i==1,j==2   i==1,j==3
-   i==2,j==0    i==2,j==1   i==2,j==2   i==2,j==3
-   i==3,j==0    i==3,j==1   i==3,j==2   i==3,j==3
-*/
 double[] SumArray(int[,] array)
 {
     double[] newArray = new double[array.GetLength(1)];
@@ -50,26 +44,15 @@ double[] SumArray(int[,] array)
                 newArray[j] += array[i, j];
             }
         }
-
+    }
+    System.Console.WriteLine();
+    for (int i = 0; i < newArray.Length; i++)
+    {
+        newArray[i] = newArray[i] / newArray.Length;
+        System.Console.Write(newArray[i] + " ");
     }
     return newArray;
 }
-double[] MediumArifm(int[,] array, double[] arr)
-{
-    double[] Array = new double[arr.Length];
-    for (int i = 0; i < arr.Length; i++)
-    {
-        Array[i] = arr[i] / array.GetLength(1);
-        System.Console.Write(Array[i] + " ");
-    }
-    return Array;
-}
-
+Console.Clear();
 int[,] array = GetAndPrintArray(4, 4, 5, 11);
 double[] arr = SumArray(array);
-System.Console.WriteLine();
-System.Console.Write(String.Join(" ", arr));
-System.Console.WriteLine();
-MediumArifm(array, arr);
-
-
