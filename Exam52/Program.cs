@@ -20,7 +20,7 @@ int[,] GetAndPrintArray(int m, int n, int minValue, int maxValue)
     return result;
 }
 
-double[] SumArray(int[,] array)
+double[] SumAndMediumArifmArray(int[,] array)
 {
     double[] newArray = new double[array.GetLength(1)];
     for (int i = 0; i < array.GetLength(0); i++)
@@ -54,5 +54,5 @@ double[] SumArray(int[,] array)
     return newArray;
 }
 Console.Clear();
-int[,] array = GetAndPrintArray(4, 4, 5, 11);
-double[] arr = SumArray(array);
+int[,] array = GetAndPrintArray(4, 4, 4, 16);
+double[] arr = SumAndMediumArifmArray(array);
